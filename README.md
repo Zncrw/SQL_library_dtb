@@ -1,6 +1,5 @@
 <h1> Design document <h1>
-<p>By Carter Zenke</p>
-<p>Video overview: </p>
+    <p>Video overview: </p>
 
 <h2>Scope:</h2>
 <p>The database for CS50 SQL is made like electronic library. </p>
@@ -70,3 +69,12 @@
     </ul>
 </ul>
 
+<h2>Optimizations</h2>
+<ul>
+    <li>Indexing</li>
+    <p> I create here 2 indexes to fasten some of most usefull querries like author_name_search and book_search" </p>
+    <li> Triggers</li>
+    <p> I also created two triggers, trigers are automaticly used when user is lending book or returning to set apropriate value in books.available </p>
+</ul>
+<h2> Diagram </h2>
+TODO
