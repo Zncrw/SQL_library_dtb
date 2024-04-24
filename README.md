@@ -42,8 +42,8 @@
         <li> biography </li>
         <p> authors brief biography stored like 'TEXT'.</p>
     </ul>
-    <li> loans </li>
-    <ul>
+    <li> loans table </li>
+        <ul>
         <li>id</li>
         <p> primary key, stored like 'INTEGER' tyepe</p>
         <li>books_id </li>
@@ -54,9 +54,8 @@
         <p>stored as 'NUMERIC' as numeric is apropriate format fro this, date cant be NULL and as default using 'CURRENT_TIMESTAMP'.</p>
         <li> return_date </li>
         <p> stored as 'NUMERIC', default set to NULL, represent date of returning the book.</p>
-    </ul>
-    <ul>
-    <li> users </li>
+        </ul>
+    <li> users table </li>
     <ul>
         <li>id </li>
         <p> primary key stored as 'INTEGER'</p>
@@ -70,5 +69,4 @@
         <p>users e-mail, stored as 'TEXT', must be 'UNIQUE' </p>
     </ul>
 </ul>
-
 
