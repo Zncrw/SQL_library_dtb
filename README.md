@@ -1,80 +1,80 @@
-<h1>Library databese's  design document <h1>
-    <p>Video overview: </p>
+<h1>Library Database Design Document</h1>
+
+<p><strong>Video Overview:</strong> </p>
 
 <h2>Scope:</h2>
-<p>The database for CS50 SQL is made like electronic library. </p>
-<p>Library should be able to handle all cases that user would need like borrow book, return, database of authors etc.</p>
+<p>The CS50 SQL database is designed as an electronic library capable of handling various user actions such as borrowing books, returning them, and managing information about authors.</p>
 
-<h2>Representation: </h2>
-<p>Entities are captured in SQLite tables with the following schema.</p>
+<h2>Representation:</h2>
+<p>The entities are represented in SQLite tables with the following schema:</p>
 
 <ul>
-    <li>books table</li>
+    <li><strong>books table:</strong></li>
     <ul>
-        <li> id </li>
-        <p> is numeric value, serve as primary key and as primery key is also unique. Its used for better searching. </p>
-        <li> ISBN </li>
-        <p> ISBN is numeric key, used world wide for identify books, it must be unique and database requires this value to be inserted. </p>
-        <li> name </li>
-        <p> storing books name as `TEXT`, given `TEXT` is appropriate for name fields.</p>
-        <li> genre </li>
-        <p> is also 'TEXT' value of genre of given books, could be more genres for one book.</p>
-        <li> year </li>
-        <p> is for storing the year when books was written. Storin like 'INTEGER' value. </p>
-        <li> description</li>
-        <p>brief description of book stored like 'TEXT'.</p>
-        <li> available</li>
-        <p>storing 'NUMERIC' value, if value = 0, then book is available. If value = 1 then book is not available. Defalut value is set to 0.</p>
-        <li> author_id</li>
-        <p>storing 'UNIQUE' and 'INTEGER' value, value references to author.id and is supossed to be used for easier JOINing tables.</p>
+        <li><strong>id:</strong></li>
+        <p>A numeric value serving as the primary key, also unique. It facilitates efficient searching.</p>
+        <li><strong>ISBN:</strong></li>
+        <p>A numeric key used globally to identify books. It must be unique, and its insertion is required by the database.</p>
+        <li><strong>name:</strong></li>
+        <p>Stores the name of books as 'TEXT'. This data type is suitable for name fields.</p>
+        <li><strong>genre:</strong></li>
+        <p>A 'TEXT' value representing the genre(s) of a given book. Multiple genres can be associated with one book.</p>
+        <li><strong>year:</strong></li>
+        <p>Stores the year when the book was written as an 'INTEGER' value.</p>
+        <li><strong>description:</strong></li>
+        <p>A brief description of the book stored as 'TEXT'.</p>
+        <li><strong>available:</strong></li>
+        <p>Stores a 'NUMERIC' value. If the value is 0, the book is available; if 1, it's not available. The default value is set to 0.</p>
+        <li><strong>author_id:</strong></li>
+        <p>Stores a 'UNIQUE' and 'INTEGER' value referencing the author's ID. It's designed to simplify table JOIN operations.</p>
     </ul>
-    <li> author table</li>
+    <li><strong>author table:</strong></li>
     <ul>
-        <li> id </li>
-        <p> author specific ID stored as 'INTEGER' type </p>
-        <li>first_name </li>
-        <p> which specifies the author first name as `TEXT`, given `TEXT` is appropriate for name fields.</p>
-        <li>last_name</li>
-        <p> storing last name as 'TEXT'. </p>
-        <li> country </li>
-        <p> storing author coutnry of origin, stored also like 'TEXT'. </p>
-        <li> biography </li>
-        <p> authors brief biography stored like 'TEXT'.</p>
+        <li><strong>id:</strong></li>
+        <p>The author's specific ID stored as 'INTEGER' type.</p>
+        <li><strong>first_name:</strong></li>
+        <p>Specifies the author's first name as 'TEXT'.</p>
+        <li><strong>last_name:</strong></li>
+        <p>Stores the author's last name as 'TEXT'.</p>
+        <li><strong>country:</strong></li>
+        <p>Stores the author's country of origin as 'TEXT'.</p>
+        <li><strong>biography:</strong></li>
+        <p>The author's brief biography stored as 'TEXT'.</p>
     </ul>
-    <li> loans table </li>
-        <ul>
-        <li>id</li>
-        <p> primary key, stored like 'INTEGER' tyepe</p>
-        <li>books_id </li>
-        <p>foreign_key that references to books.id, stored like 'INTEGER'. </p>
-        <li>user_id </li>
-        <p> foreign_key that references to users.id, stored like 'INTEGER'. </p>
-        <li>burrow_date </li>
-        <p>stored as 'NUMERIC' as numeric is apropriate format fro this, date cant be NULL and as default using 'CURRENT_TIMESTAMP'.</p>
-        <li> return_date </li>
-        <p> stored as 'NUMERIC', default set to NULL, represent date of returning the book.</p>
-        </ul>
-    <li> users table </li>
+    <li><strong>loans table:</strong></li>
     <ul>
-        <li>id </li>
-        <p> primary key stored as 'INTEGER'</p>
-        <li>username </li>
-        <p>users username, stored as 'TEXT', must be 'UNIQUE' </p>
-        <li> name</li>
-        <p> users name, stored as 'TEXT'</p>
-        <li>surname </li>
-        <p> users surname, stored as 'TEXT'</p>
-        <li>e-mail </li>
-        <p>users e-mail, stored as 'TEXT', must be 'UNIQUE' </p>
+        <li><strong>id:</strong></li>
+        <p>The primary key stored as 'INTEGER' type.</p>
+        <li><strong>book_id:</strong></li>
+        <p>A foreign key referencing 'books.id', stored as 'INTEGER'.</p>
+        <li><strong>user_id:</strong></li>
+        <p>A foreign key referencing 'users.id', stored as 'INTEGER'.</p>
+        <li><strong>borrow_date:</strong></li>
+        <p>Stored as 'NUMERIC' since this format is appropriate for dates. It cannot be NULL and defaults to 'CURRENT_TIMESTAMP'.</p>
+        <li><strong>return_date:</strong></li>
+        <p>Stored as 'NUMERIC', with a default value of NULL, representing the return date of the book.</p>
+    </ul>
+    <li><strong>users table:</strong></li>
+    <ul>
+        <li><strong>id:</strong></li>
+        <p>The primary key stored as 'INTEGER'.</p>
+        <li><strong>username:</strong></li>
+        <p>The user's username stored as 'TEXT', must be 'UNIQUE'.</p>
+        <li><strong>name:</strong></li>
+        <p>The user's name stored as 'TEXT'.</p>
+        <li><strong>surname:</strong></li>
+        <p>The user's surname stored as 'TEXT'.</p>
+        <li><strong>e-mail:</strong></li>
+        <p>The user's email stored as 'TEXT', must be 'UNIQUE'.</p>
     </ul>
 </ul>
 
 <h2>Optimizations</h2>
 <ul>
-    <li>Indexing</li>
-    <p> I create here 2 indexes to fasten some of most usefull querries like author_name_search and book_search" </p>
-    <li> Triggers</li>
-    <p> I also created two triggers, trigers are automaticly used when user is lending book or returning to set apropriate value in books.available </p>
+    <li><strong>Indexing:</strong></li>
+    <p>I have created two indexes to speed up frequently used queries, such as author name searches and book searches.</p>
+    <li><strong>Triggers:</strong></li>
+    <p>I have also implemented two triggers. They automatically update the 'available' value in the 'books' table when a user borrows or returns a book.</p>
 </ul>
-<h2> Diagram </h2>
-TODO
+
+<h2>Diagram</h2>
