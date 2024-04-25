@@ -78,4 +78,4 @@
 </ul>
 
 <h2>Diagram</h2>
-<p> To generate ERD (Entity-Relationship Diagram) i used program DbVisualizer. Diagram can be found here <img src="ERP_diagram.png"> </p>
+<p> To generate ERD (Entity-Relationship Diagram) i used program DbVisualizer. Diagram can be found here <a href="ERD_diagram.png">Diagram</a> </p>
